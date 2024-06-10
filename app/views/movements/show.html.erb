@@ -1,0 +1,5 @@
+<% if policy(@movement).edit? %>
+  <%= link_to "Edit this movement", edit_movement_path(@movement) %> |
+<% end %>
+<!-- [...] -->
+<%= button_to "Destroy this movement", @movement, method: :delete if policy(@movement).destroy? %>
