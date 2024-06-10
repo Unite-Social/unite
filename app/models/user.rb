@@ -10,5 +10,5 @@ class User < ApplicationRecord
     organization == true
   end
 
-  validates :organization_type, inclusion: { in: ["Ong", "Private Company", "Public Agency", "Community Association", "Student Association", "Religious Organization"] }
+  validates :organization_type, inclusion: { in: ["Ong", "Private Company", "Public Agency", "Community Association", "Student Association", "Religious Organization", nil] }
 end
