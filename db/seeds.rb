@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-puts "Criando use"
+puts "Criando user"
   g = User.create(name:"greenpeace", phone:"66688888", organization:true, cnpj: "0202020202021", organization_type: "ong", description:"testetestetes", email: "green@teste.com", password: "123123" )
   f = User.create(name:"Jucabala", phone:"222111666", cpf:"12345678900", email:"teste@teste.com", password:"123123")
 
