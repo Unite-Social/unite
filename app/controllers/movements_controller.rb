@@ -17,6 +17,15 @@ class MovementsController < ApplicationController
   def create
     @movement = Movement.new(movement_params)
     @movement.user = current_user
+    @movement.save
+    raise
+    if @movement.save
+      # Data added
+      redirect_to movement_path(@movement)
+    else
+      # Error
+      render :new, status: :unprocessable_entity
+    end
     authorize @movement
   end
 
@@ -34,7 +43,7 @@ class MovementsController < ApplicationController
 
   private
 
-  def movements_params
+  def movement_params
     params.require(:movement).permit(:name, :date, :rewards, :description, :address, :contact)
   end
 end
