@@ -6,9 +6,17 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :validatable
   validates :name, :phone, presence: true
   validates :cnpj, :organization_type, :description, presence: true, if: :organization?
+
+  ORGANIZATION_TYPES = [
+    "Ong", "Private Company",
+    "Public Agency",
+    "Community Association",
+    "Student Association",
+    "Religious Organization"
+  ]
   def organization?
     organization == true
   end
 
-  validates :organization_type, inclusion: { in: ["Ong", "Private Company", "Public Agency", "Community Association", "Student Association", "Religious Organization", nil] }
+  validates :organization_type, inclusion: { in: [ORGANIZATION_TYPES, nil].flatten }
 end
