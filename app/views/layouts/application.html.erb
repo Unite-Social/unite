@@ -10,9 +10,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
 
-    <%= yield %>
+  <body>
+  <%# <%= render "shared/navbar"%>
+    <%= render "shared/flashes" %>
+    <div class="d-flex">
+      <%= render "shared/sidebar" unless devise_controller? %>
+      <%= yield %>
+    </div>
   </body>
 </html>
+    

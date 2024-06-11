@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+  margin: 0;
+ }
+
+.custom-sidebar {
+  background-color: #ffffff; /* Cor de fundo */
+  width: 280px; /* Largura */
+  min-height: 100vh;
+   /* Garante que a sidebar ocupe toda a altura da página */
+}
+
+.custom-sidebar .nav-link.active {
+  background-color: #BCFB23; /* Cor de fundo do link ativo */
+  color: rgb(233, 227, 227); /* Cor do texto do link ativo */
+}
+
+.custom-sidebar .nav-link {
+  color: #e01515; /* Cor do texto dos links */
+  margin-bottom: 10px; /* Espaço entre os links */
+}
+
+.custom-sidebar .nav-link:hover {
+  background-color: #BCFB23; /* Cor de fundo ao passar o mouse */
+  color: #e2e3e6; /* Cor do texto ao passar o mouse */
+}
+
+.custom-sidebar .dropdown-menu {
+  background-color: #BCFB23; /* Cor de fundo do dropdown */
+  border: none; /* Sem borda */
+}
+
+.custom-sidebar .dropdown-item:hover {
+  background-color: #BCFB23; /* Cor de fundo do item ao passar o mouse */
+  color: #e0e2e6; /* Cor do texto ao passar o mouse */
+}
