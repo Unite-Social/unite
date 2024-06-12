@@ -5,7 +5,7 @@ class MovementPolicy < ApplicationPolicy
   end
 
   def create?
-    user.organization?
+    user&.organization?
   end
 
   def update?
@@ -27,7 +27,7 @@ class MovementPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      user.organization? ? scope.where(user: user) : scope.all
+      user&.organization? ? scope.where(user: user) : scope.all
     end
   end
 end

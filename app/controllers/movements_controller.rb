@@ -2,11 +2,11 @@ class MovementsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index]
 
   def index
-    @movement = policy_scope(Movement)
+    @movements = policy_scope(Movement)
 
     # The `geocoded` scope filters only flats with coordinates
 
-    @markers = @movement.geocoded.map do |m|
+    @markers = @movements.geocoded.map do |m|
       {
         lat: m.latitude,
         lng: m.longitude,
