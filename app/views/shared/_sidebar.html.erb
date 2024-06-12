@@ -1,35 +1,42 @@
-<div class="d-flex flex-column custom-sidebar">
+<div class="sidebar" data-controller="sidebar">
+  <button class="sidebar__toggle" type="button" data-action="click->sidebar#toggle" aria-label="Toggle sidebar"></button>
+
     <%= image_tag "unite.jpeg" %>
   <div class="d-flex flex-grow-1">
     <div class="d-flex flex-column " style="width: 280px;">
       <p class="fs-4 mx-4">User Name</p>
         <%# <span class="user-name"><%= current_user.email  %>
-        <ul class="list-unstyled">
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark mb-3" aria-current="page">
-              <svg class="bi me-2 my-6"  width="20" height="20"><use xlink:href="#home"></use></svg>
-              <% link_to "home", root_path %> Home
-            </a>
-          </li>
-          <li>
-            <a href="#bootstrap" class="nav-link link-dark mb-3">
-              <svg class="bi me-2 " width="20" height="20"><use xlink:href="#table"></use></svg>
-              Events
-              <% link_to "home", root_path %>
-           </a>
-           </li>
-           <li>
-            <a href="#bootstrap" class="nav-link link-dark mb-3">
-              <svg class="bi me-2 " width="20" height="20"><use xlink:href="#grid"></use></svg>
-              Messages
-            </a>
-           </li>
-        </ul>
+    <ul class="list-unstyled">
+      <div class="nav-item">
+        <i class="fa-solid fa-house"></i> <%= link_to "Home", root_path %>
+      </div>
+        <div class="nav-item">
+          <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", root_path %>
+        </div>
+          <div class="nav-item">
+            <i class="fa-solid fa-address-card"></i> <%= link_to "About", root_path %>
+          </div>
+    </ul>
         <% if user_signed_in? %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
         <% else %>
-          <%= link_to "Login", new_user_session_path %>
+          <button type="button" class="btn btn-outline-dark btn-sm " onclick="window.location.href='<%= new_user_session_path %>'">Login</button>
         <%end %>
+
+ <div class="d-flex flex-column-reverse">
+  <div class="footer ">
+    <div class="footer-links">
+      <a href="https://github.com/Unite-Social/unite">
+        <i class="fab fa-github"></i> Unite Social
+      </a>
+    </div>
+      <div class="footer-copyright">
+        <p class="fw-bold text-black">Made by Unite <i class="fas fa-heart"></i></p>
+    </div>
+    </div>
+  </div>
+
     </div>
   </div>
 </div>
+</body>
