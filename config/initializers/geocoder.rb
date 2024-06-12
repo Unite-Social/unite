@@ -1,7 +1,7 @@
 Geocoder.configure(
   # Geocoding options
 
-  Geocoder.configure(http_headers: { "User-Agent" => "your contact info" }),
+  # Geocoder.configure(http_headers: { "User-Agent" => "your contact info" }),
   timeout: 10,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
   ip_lookup: :telize,      # name of IP address geocoding service (symbol)
