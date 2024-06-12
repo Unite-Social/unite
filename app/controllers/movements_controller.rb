@@ -19,6 +19,19 @@ class MovementsController < ApplicationController
     authorize @movement
   end
 
+  def zoom
+    @movement = Movement.find(params[:id])
+    authorize @movement
+
+    @markers = [{
+      lat:  @movement.latitude,
+      lng:  @movement.longitude,
+      info_window_html: render_to_string(partial: "info_window", locals: {m:  @movement})
+    }]
+
+
+  end
+
   def new
     @movement = Movement.new
     authorize @movement
