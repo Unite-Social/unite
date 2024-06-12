@@ -1,5 +1,5 @@
 <ul class="list-group h-25 flex-grow-1 overflow-auto">
-  <%= link_to "New Movement", new_movement_path if policy(Movement).new? %>
+  <%= link_to "Start a movement", new_movement_path , class:"list-link btn btn-primary" if policy(Movement).new? %>
   <% @movements.each do |movement| %>
     <%= link_to zoom_movement_path(movement) do %>
       <div>
