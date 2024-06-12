@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   resources :movements do
     get "zoom", on: :member
+    resources :participants, only: [:new, :create]
   end
-
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
