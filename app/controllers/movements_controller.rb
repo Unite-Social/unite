@@ -28,7 +28,6 @@ class MovementsController < ApplicationController
     @movement = Movement.new(movement_params)
     @movement.user = current_user
     @movement.save
-    raise
     if @movement.save
       # Data added
       redirect_to movement_path(@movement)
