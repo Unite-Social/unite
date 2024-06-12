@@ -1,5 +1,6 @@
 class MovementsController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :show, :index]
+  before_action :set_movement, only: [:show]
 
   def index
     @movements = policy_scope(Movement)
@@ -17,6 +18,7 @@ class MovementsController < ApplicationController
 
   def show
     authorize @movement
+    @minutes = format('%02d', @movement.date.min)
   end
 
   def new
@@ -28,7 +30,6 @@ class MovementsController < ApplicationController
     @movement = Movement.new(movement_params)
     @movement.user = current_user
     @movement.save
-    raise
     if @movement.save
       # Data added
       redirect_to movement_path(@movement)
@@ -55,5 +56,9 @@ class MovementsController < ApplicationController
 
   def movement_params
     params.require(:movement).permit(:name, :date, :rewards, :description, :address, :contact)
+  end
+
+  def set_movement
+    @movement = Movement.find(params[:id])
   end
 end
