@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import "./sidebar"
 
 const application = Application.start()
 
