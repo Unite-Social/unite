@@ -1,6 +1,9 @@
 class MovementPolicy < ApplicationPolicy
-
   def show?
+    true
+  end
+
+  def zoom?
     true
   end
 
