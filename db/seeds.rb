@@ -7,7 +7,7 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-User.destroy_all
+
 
 
 puts "Create user"
@@ -19,3 +19,10 @@ puts "Criando user"
   f = User.create(name:"Jucabala", phone:"222111666", cpf:"12345678900", email:"teste@teste.com", password:"123123")
 
 puts "User: #{user1.name}, #{user2.name} created!"
+
+puts "Criando chat"
+Chatroom.create(name: "general")
+chat1 = User.create(email: "sebastien@lewagon.org", nickname: "Sebastien", password: "123123", name:"Tião Galinha", phone:"123456789")
+chat2 = User.create(email: "boris@lewagon.org", nickname: "Boris", password: "123123",name:"João Grilo", phone:"123456789")
+
+puts "User: #{chat1.name}, #{chat2.name} created!"
