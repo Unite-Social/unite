@@ -10,17 +10,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-
-  <body>
+  <div  data-controller="sidebar">
+  <body class="body-general" data-sidebar-target='body'>
   <%# <%= render "shared/navbar"%>
     <%= render "shared/flashes" %>
-    <div  data-controller="sidebar">
-      <div class="d-flex w-100">
+
+      <div class="d-flex">
 
         <%= render "shared/sidebar" unless devise_controller? %>
-        <div class="content w-100">
+
           <div class="container-general" data-sidebar-target='container'>
-        </div>
+
           <%= yield %>
         </div>
       </div>

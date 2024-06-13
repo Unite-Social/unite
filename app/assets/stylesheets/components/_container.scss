@@ -1,7 +1,14 @@
 .container-general {
+  min-height: 100vh;
   flex-grow: 1;
+  // width: 100vw;
+  transition: transform 0.5s ease;
 }
 
-.container-general-active {
-  transform: translateX(-30%);
+.container-general.container-general-active {
+  transform: translateX(-26%);
 }
+
+// .body-general{
+//   width: 100%;;
+// }

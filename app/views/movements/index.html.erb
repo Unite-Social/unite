@@ -1,8 +1,8 @@
-<div class="d-flex flex-column w-100">
+<%# <div class="d-flex flex-column w-100"> %>
   <div class="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <%= render "list_movements" %>
-</div>
+<%# </div> %>
