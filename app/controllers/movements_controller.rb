@@ -1,6 +1,6 @@
 class MovementsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :show, :index]
-  before_action :set_movement, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show, :index, :zoom, :edit, :update, :destroy]
+  before_action :set_movement, only: [:show, :zoom, :edit, :update, :destroy]
 
   def index
     @movements = policy_scope(Movement)
@@ -23,15 +23,15 @@ class MovementsController < ApplicationController
 
   def zoom
     @movement = Movement.find(params[:id])
-    authorize @movement
 
     @markers = [{
       lat:  @movement.latitude,
       lng:  @movement.longitude,
       info_window_html: render_to_string(partial: "info_window", locals: {m:  @movement})
-    }]
+      }]
 
 
+    authorize @movement
   end
 
   def new
@@ -62,6 +62,8 @@ class MovementsController < ApplicationController
   end
 
   def destroy
+    @movement.destroy!
+    redirect_to movements_path, notice: 'Movement was successfully destroyed.', status: :see_other
     authorize @movement
   end
 

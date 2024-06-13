@@ -12,15 +12,20 @@ class MovementPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    user_is_owner?
     # record: the movement passed to the `authorize` method in controller
     # user: the `current_user` signed in with Devise
   end
 
   def destroy?
-    record.user == user
+    user_is_owner?
   end
 
+  private
+
+  def user_is_owner?
+    record.user == user
+  end
   # NOTE: Up to Pundit v2.3.1, the inheritance was declared as
   # `Scope < Scope` rather than `Scope < ApplicationPolicy::Scope`.
   # In most cases the behavior will be identical, but if updating existing
