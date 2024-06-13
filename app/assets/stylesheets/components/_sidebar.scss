@@ -6,19 +6,19 @@
   flex-direction: column;
   justify-content: center;
   width: 30%;
-  height: 100%;
+  height: 100vh;
   z-index: 9;
   transform: translateX(0%);
   background-color: rgba(236, 233, 233, 0.9);
   transition: 0.5s;
 }
 .sidebar--active {
-  transform: translateX(-80%);
+  transform: translateX(-100%);
 }
 
 .sidebar__toggle {
   position: absolute;
-  top: 50%;
+  top: 5%;
   right: -30px;
   display: flex;
   justify-content: center;
