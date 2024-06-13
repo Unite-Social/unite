@@ -14,9 +14,15 @@
   <body>
   <%# <%= render "shared/navbar"%>
     <%= render "shared/flashes" %>
-    <div class="d-flex">
-      <%= render "shared/sidebar" unless devise_controller? %>
-      <%= yield %>
+    <div  data-controller="sidebar">
+      <div class="d-flex w-100">
+
+        <%= render "shared/sidebar" unless devise_controller? %>
+
+        <div class="container-general" data-sidebar-target='container'>
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>
