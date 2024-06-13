@@ -16,6 +16,10 @@ class ApplicationPolicy
     false
   end
 
+  def zoom?
+    true
+  end
+
   def create?
     false
   end
