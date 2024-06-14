@@ -1,0 +1,14 @@
+<ul class="list-group h-50 flex-grow-1 overflow-auto">
+<% @movements.each do |movement| %>
+<%= link_to zoom_movement_path(movement) do %>
+  <div class="card-product">
+  <%= image_tag "unite.jpeg", class:"list-img" %>
+  <div class="card-product-infos">
+    <h2> <%= movement.name %> </h2>
+    <p> <%= movement.description %> </p>
+    <p><%= movement.date %> </p>
+  </div>
+</div>
+<% end %>
+<% end %>
+</ul>
