@@ -1,1 +1,51 @@
+<div class="cointainer p-5">
+  <% if user_signed_in? %>
+  <h1>Hello, <%= current_user.name %> !</h1>
+  <% else %>
+  <h1>Hello!</h1>
+  <% end %>
+  <div class="my-5 d-flex gap-3">
 
+    <%= link_to movements_path do %>
+    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+      Check movements
+    </div>
+    <% end %>
+    <%= link_to movements_path do %>
+    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+      Check movements
+    </div>
+    <% end %>
+    <%= link_to movements_path do %>
+    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+      Check movements
+    </div>
+    <% end %>
+    <%= link_to movements_path do %>
+    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+      Check movements
+    </div>
+    <% end %>
+    <%= link_to movements_path do %>
+    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+      Check movements
+    </div>
+    <% end %>
+
+  </div>
+
+  <%= link_to Movement.find(6) do %>
+  <div class="card-new">
+    <img src="<%= asset_path 'beach.jpeg' %>" />
+    <div class="card-new-infos">
+      <div>
+        <h2><%= Movement.find(6).name %></h2>
+        <h3><%= Movement.find(6).description %></h3>
+      </div>
+      <h3 class="card-new-rewards"><%= Movement.find(6).rewards %></h3>
+      <img src="<%= asset_path 'ong-avatar.jpeg' %>" class="card-new-user avatar-bordered" />
+    </div>
+  </div>
+  <% end %>
+
+</div>
