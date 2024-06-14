@@ -11,7 +11,7 @@
           <i class="fa-solid fa-house"></i> <%= link_to "Home", root_path %>
         </div>
         <div class="nav-item mb-2">
-          <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", root_path %>
+          <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", chatroom_path(Chatroom.last) %>
         </div>
         <div class="nav-item mb-2">
           <i class="fa-solid fa-address-card"></i> <%= link_to "About", about_path %>
@@ -27,5 +27,4 @@
       <%end %>
     </div>
   </div>
-
 </div>
