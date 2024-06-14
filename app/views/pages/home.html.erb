@@ -34,15 +34,15 @@
 
   </div>
 
-  <%= link_to Movement.find(6) do %>
+  <%= link_to Movement.last do %>
   <div class="card-new">
     <img src="<%= asset_path 'beach.jpeg' %>" />
     <div class="card-new-infos">
       <div>
-        <h2><%= Movement.find(6).name %></h2>
-        <h3><%= Movement.find(6).description %></h3>
+        <h2><%= Movement.last.name %></h2>
+        <h3><%= Movement.last.description %></h3>
       </div>
-      <h3 class="card-new-rewards"><%= Movement.find(6).rewards %></h3>
+      <h3 class="card-new-rewards"><%= Movement.last.rewards %></h3>
       <img src="<%= asset_path 'ong-avatar.jpeg' %>" class="card-new-user avatar-bordered" />
     </div>
   </div>

@@ -7,14 +7,17 @@
       <p class="fs-4 mx-4">User Name</p>
           <%# <span class="user-name"><%= current_user.email  %>
       <ul class="list-unstyled">
-        <div class="nav-item">
+        <div class="nav-item mb-2">
           <i class="fa-solid fa-house"></i> <%= link_to "Home", root_path %>
         </div>
-        <div class="nav-item">
+        <div class="nav-item mb-2">
           <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", chatroom_path(Chatroom.last) %>
         </div>
-        <div class="nav-item">
+        <div class="nav-item mb-2">
           <i class="fa-solid fa-address-card"></i> <%= link_to "About", about_path %>
+        </div>
+        <div class="nav-item mb-2">
+          <i class="fa-solid fa-group-arrows-rotate"></i> <%= link_to "Movement", movements_path %>
         </div>
       </ul>
       <% if user_signed_in? %>
@@ -24,5 +27,4 @@
       <%end %>
     </div>
   </div>
-
 </div>
