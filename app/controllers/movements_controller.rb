@@ -19,6 +19,7 @@ class MovementsController < ApplicationController
   def show
     authorize @movement
     @minutes = format('%02d', @movement.date.min)
+    @month = format('%02d', @movement.date.month)
   end
 
   def zoom

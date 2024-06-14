@@ -11,10 +11,10 @@
           <i class="fa-solid fa-house"></i> <%= link_to "Home", root_path %>
         </div>
         <div class="nav-item">
-          <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", root_path %>
+          <i class="fa-solid fa-calendar-days"></i> <%= link_to "Messages", chatroom_path(Chatroom.last) %>
         </div>
         <div class="nav-item">
-          <i class="fa-solid fa-address-card"></i> <%= link_to "About", root_path %>
+          <i class="fa-solid fa-address-card"></i> <%= link_to "About", about_path %>
         </div>
       </ul>
       <% if user_signed_in? %>
