@@ -1,11 +1,14 @@
-<div class="container w-25 my-5 signup">
-  <h2>Sign up</h2>
-    <div data-controller="toggle">
-      <div data-toggle-target="volunteerForm">
-        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= f.error_notification %>
+<div class="container w-50 my-5 signup">
 
-          <div class="form-inputs">
+  <div data-controller="toggle">
+    <div data-toggle-target="volunteerForm">
+      <h2 class="text-center">Sign up</h2>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs row">
+          <!-- First Column -->
+          <div class="col-md-6">
             <%= f.input :name,
                         required: true,
                         autofocus: true %>
@@ -15,6 +18,10 @@
             <%= f.input :cpf,
                         required: true,
                         autofocus: true %>
+          </div>
+
+          <!-- Second Column -->
+          <div class="col-md-6">
             <%= f.input :email,
                         required: true,
                         autofocus: true,
@@ -27,17 +34,20 @@
                         required: true,
                         input_html: { autocomplete: "new-password" } %>
           </div>
-
-          <div class="form-actions">
-            <%= f.button :submit, "Sign up", class:"btn btn-primary w-100" %>
-          </div>
-        <% end %>
         </div>
-          <button class="btn btn-success w-100" button data-action="click->toggle#fire" data-toggle-target="signButton">Signing up as an ORG? Click here!</button>
-          <%= render "new_org", user: @user %>
-          <%= render "devise/shared/links" %>
-          <div class="d-none" data-toggle-target="returnButton">
-          <%= link_to "Return", new_user_registration_path %>
-          </div>
+
+        <div class="form-actions text-center">
+          <%= f.button :submit, "Sign up", class:"btn btn-primary w-100 mx-auto" %>
+        </div>
+      <% end %>
+    </div>
+    <%= render "new_org", user: @user %>
+    <%= render "devise/shared/links" %>
+    <button class="btn btn-success w-100 mt-5" button data-action="click->toggle#fire"
+      data-toggle-target="signButton">Do you want to sign up as an ORG? Click here!</button>
+    <div class="d-none" data-toggle-target="returnButton">
+      <%= link_to "Return", new_user_registration_path %>
+    </div>
+      <%= link_to "Home page", root_path %>
   </div>
 </div>
