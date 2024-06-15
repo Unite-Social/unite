@@ -1,14 +1,13 @@
 .map {
   height: 60vh;
-  width: 128%;
+  width: 126%;
 }
 
 .map-zoom {
-  height: 100%;
-  width: 128%;
+  height: 100vh;
+  width: 126%;
 }
 
 body {
-  overflow-x: hidden;
-
+  overflow: hidden;
 }
