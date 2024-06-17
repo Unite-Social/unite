@@ -5,7 +5,7 @@
     <% else %>
     <h1>Hello!</h1>
     <% end %>
-    <div class="my-5 d-flex gap-3">
+    <div class="my-5 d-flex gap-3 justify-content-evenly">
 
       <%= link_to new_user_registration_path do %>
       <div class="card-join">
@@ -17,21 +17,21 @@
         CHECK SOCIAL MOVEMENTS
       </div>
       <% end %>
-      <%= link_to movements_path do %>
+      <%= link_to Movement.last do %>
       <div class="card-most-new" style="background-image: url(<%= asset_path 'new.png' %>)">
-        MOST NEW MOVEMENT
+        +++++++++++
       </div>
       <% end %>
       <%= link_to movements_path do %>
-      <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-        Check Social Movements
+      <div class="card-ad" style="background-image: url(<%= asset_path 'kids.jpeg' %>)">
+        <h4>DO YOU WANT TO <br>HELP CHILDREN AND WIN <br>100R$ ZAFARI VOUCHER <br>CLICK HERE!</h4>
       </div>
       <% end %>
     </div>
 
     <!-- TRENDING -->
     <h3>Trending</h3>
-    <div class="d-flex gap-3 justify-content-start">
+    <div class="d-flex justify-content-evenly">
       <% if Movement.exists? %>
       <%= link_to Movement.last do %>
       <div class="card-new">
@@ -68,15 +68,8 @@
 
     <!-- CHARTS -->
     <div class="my-5">
-      <h3>Graphs</h3>
-      <div class="d-flex justify-content-evenly">
-        <div>
-          <%= pie_chart Movement.group(:user_id).count %>
-        </div>
-        <div class="card-line-chart">
-          <%= line_chart Movement.group_by_day(:created_at).count %>
-        </div>
-      </div>
+            <h3>Graphs</h3>
+      <%= render "charts" %>
     </div>
   </div>
 </body>

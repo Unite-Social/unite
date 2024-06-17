@@ -1,5 +1,16 @@
 .body-home {
-  overflow: scroll;
+  overflow-y: scroll;
+}
+
+h4 {
+  font-size: 36px;
+  font-family: "Jersey 15 Charted", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  text-align: center;
 }
 
 .card-map {
@@ -19,30 +30,8 @@
   border-radius: 5px;
   transition: transform 0.4s, box-shadow 0.4s;
   position: relative;
-}
-
-.card-most-new {
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 100%;
-  height: 250px;
-  display: flex;
-  padding: 4px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: rgb(0, 0, 0);
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: transform 0.4s, box-shadow 0.4s;
-  position: relative;
-}
-
-.card-most-new:hover {
-  transform: scale(1.03);
 }
 
 .card-map:hover {
@@ -94,14 +83,65 @@
   }
 }
 
-.card-join:hover {
-  transform: scale(1.03);
-}
-
 @keyframes moveGradient {
   50% {
     background-position: 100% 50%;
   }
+}
+
+.card-join:hover {
+  transform: scale(1.03);
+}
+
+.card-most-new {
+  background-size: contain;
+  background-repeat: repeat;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card-most-new:hover {
+  transform: scale(1.03);
+}
+
+.card-ad {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.4s, box-shadow 0.4s;
+  transition: transform 0.4s, box-shadow 0.4s;
+  position: relative;
+}
+
+.card-ad:hover {
+  transform: scale(1.03);
 }
 
 
