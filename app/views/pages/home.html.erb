@@ -6,64 +6,7 @@
     <h1>Hello!</h1>
     <% end %>
     <div class="my-5 d-flex gap-3 justify-content-evenly">
-
-      <%= link_to new_user_registration_path do %>
-      <div class="card-join">
-        JOIN US NOW!
-      </div>
-      <% end %>
-      <%= link_to movements_path do %>
-      <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-        CHECK SOCIAL MOVEMENTS
-      </div>
-      <% end %>
-      <%= link_to Movement.last do %>
-      <div class="card-most-new" style="background-image: url(<%= asset_path 'new.png' %>)">
-        +++++++++++
-      </div>
-      <% end %>
-      <%= link_to movements_path do %>
-      <div class="card-ad" style="background-image: url(<%= asset_path 'kids.jpeg' %>)">
-        <h4>DO YOU WANT TO <br>HELP CHILDREN AND WIN <br>100R$ ZAFARI VOUCHER <br>CLICK HERE!</h4>
-      </div>
-      <% end %>
-    </div>
-
-    <!-- TRENDING -->
-    <h3>Trending</h3>
-    <div class="d-flex justify-content-evenly">
-      <% if Movement.exists? %>
-      <%= link_to Movement.last do %>
-      <div class="card-new">
-        <img src="<%= asset_path 'beach.jpeg' %>" />
-        <div class="card-new-infos">
-          <div>
-            <h2><%= Movement.last.name %></h2>
-            <h3><%= Movement.last.description %></h3>
-          </div>
-          <h3 class="card-new-rewards"><%= Movement.last.rewards %></h3>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
-            class="card-new-user avatar-bordered" />
-        </div>
-      </div>
-      <% end %>
-      <% end %>
-      <% if Movement.exists? %>
-      <%= link_to Movement.last do %>
-      <div class="card-new">
-        <img src="<%= asset_path 'beach.jpeg' %>" />
-        <div class="card-new-infos">
-          <div>
-            <h2><%= Movement.last.name %></h2>
-            <h3><%= Movement.last.description %></h3>
-          </div>
-          <h3 class="card-new-rewards"><%= Movement.last.rewards %></h3>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
-            class="card-new-user avatar-bordered" />
-        </div>
-      </div>
-      <% end %>
-      <% end %>
+      <%= render "cards_home" %>
     </div>
 
     <!-- CHARTS -->
