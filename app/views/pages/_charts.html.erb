@@ -1,0 +1,57 @@
+<div class="d-flex justify-content-evenly">
+
+        <!--Movements graph-->
+        <div>
+        <p>Number of events per Org</p>
+          <% labels = @movements_per_user.keys.map { |id| User.find(id).name } %>
+          <% data = @movements_per_user.values %>
+          <canvas id="movementsChart" width="400" height="400"></canvas>
+          <script>
+            const movementsCtx = document.getElementById('movementsChart').getContext('2d');
+            const movementsChart = new Chart(movementsCtx, {
+              type: 'pie',
+              data: {
+                labels: <%= raw labels.to_json %>,
+                datasets: [{
+                  label: '# of Movements',
+                  data: <%= raw data.to_json %>,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+
+              }
+            });
+          </script>
+        </div>
+
+        <!--Participants graph-->
+
+        <div>
+        <p>Number of participants per event</p>
+          <% labels = @participants_per_movement.keys.map { |id| Movement.find(id).name } %>
+          <% data = @participants_per_movement.values %>
+          <canvas id="participantsChart" width="400" height="400"></canvas>
+          <script>
+            const participantsCtx = document.getElementById('participantsChart').getContext('2d');
+            const participantsChart = new Chart(participantsCtx, {
+              type: 'bar',
+              data: {
+                labels: <%= raw labels.to_json %>,
+                datasets: [{
+                  label: '# of Participants',
+                  data: <%= raw data.to_json %>,
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+        </div>
+      </div>
