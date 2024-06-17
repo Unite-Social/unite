@@ -37,7 +37,7 @@
 <% if Movement.exists? %>
   <%= link_to Movement.last do %>
   <div class="card-new">
-    <img src="<%= asset_path 'beach.jpeg' %>" />
+    <%= cl_image_tag Movement.last.photo.key %>
     <div class="card-new-infos">
       <div>
         <h2><%= Movement.last.name %></h2>
