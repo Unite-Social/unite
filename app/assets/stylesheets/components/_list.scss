@@ -1,34 +1,36 @@
-.list-img {
-  height: 50px;
-}
-
 .list-link {
   position: fixed;
   top: 20px;
   right: 20px;
 }
 
-.card-product {
-  height: 100px;
+.cards {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.card {
+  height: 200px;
+  width: 160px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
 }
 
-.card-product img {
-  height: 100%;
-  width: auto;
+.card img {
+  height: 30%;
+  width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -36,6 +38,6 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card .card-infos {
   padding: 16px;
 }

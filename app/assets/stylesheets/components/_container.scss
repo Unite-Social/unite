@@ -1,12 +1,11 @@
 .container-general {
   width: 100%;
-  transition: transform 0.5s ease;
+  height:max-content;
+  margin-left: 20%;
+  transition: margin-left 0.5s ease;
 }
 
 .container-general.container-general-active {
-  transform: translateX(-26%);
-}
-
-.body-general {
-  width: 126%;
+  margin-left: 0%;
+  transition: margin-left 0.5s ease;
 }
