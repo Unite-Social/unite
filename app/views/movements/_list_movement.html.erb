@@ -1,16 +1,15 @@
-<ul class="cards d-flex flex-row flex-wrap justify-content-start m-3 gap-3">
-  <%= link_to "Start a movement", new_movement_path , class:"list-link btn btn-primary" if policy(Movement).new? %>
+<%= link_to "Start a movement", new_movement_path , class:"list-link btn btn-primary" if policy(Movement).new? %>
+<ul class="cards d-flex flex-row flex-wrap justify-content-start m-3 gap-3">  
   <% @movements.each do |movement| %>
-  <div class="card d-flex flex-column">
-    <%= link_to zoom_movement_path(movement) do %>
-
-    <%= image_tag "unite.jpeg", class:"card-img" %>
-    <div class="card-infos">
-      <h2> <%= movement.name %> </h2>
-      <p> <%= movement.description %> </p>
-      <p><%= movement.date %> </p>
+    <div class="card d-flex flex-column">
+      <%= link_to zoom_movement_path(movement) do %>
+        <%= image_tag "unite.jpeg", class:"card-img" %>
+        <div class="card-infos">
+          <h2> <%= movement.name %> </h2>
+          <p> <%= movement.description %> </p>
+          <p><%= movement.date %> </p>
+        </div>
+      <% end %>
     </div>
-  </div>
-  <% end %>
   <% end %>
 </ul>
