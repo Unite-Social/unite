@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def configure_permitted_parameters
-    params = [:name, :phone, :cpf, :org, :cnpj, :organization_type, :description, :organization]
+    params = [:name, :phone, :cpf, :org, :cnpj, :organization_type, :description, :organization, :photo]
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: params)
 
