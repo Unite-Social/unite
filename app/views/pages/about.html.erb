@@ -1,23 +1,28 @@
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center about-general">
   <div class="banner" >
-    <div class="container p-5">
-      <strong><h1>Sobre a Unite Social</h1></strong><br><p>A Unite Social é uma plataforma dedicada a conectar pessoas que desejam fazer a diferença com organizações que precisam de ajuda. Nosso objetivo é facilitar o encontro entre aqueles que querem doar seu tempo, habilidades ou recursos com ONGs, associações e projetos sociais que atuam em suas comunidades. para</p>
+    <div class="container ms-2">
+      <strong><h1>About Unite Social</h1></strong><br><p>Unite Social is a platform dedicated to connecting people who want to make a difference with organizations that need help. Our goal is to facilitate the meeting between those who want to donate their time, skills, or resources with NGOs, associations, and social projects that operate in their communities.</p>
 
-      <strong><p>Nossa Missão<p></strong><p>Na Unite Social, acreditamos que cada ato de bondade tem o poder de transformar o mundo. Nossa missão é simplificar o processo de doação e voluntariado, tornando mais fácil para todos contribuir para causas importantes e ajudar quem mais precisa.</p>
+      <strong><p>Our Mission<p></strong><p>At Unite Social, we believe that every act of kindness has the power to change the world. Our mission is to simplify the process of donation and volunteering, making it easier for everyone to contribute to important causes and help those in need.</p>
 
-      <strong><p>Junte-se a Nós</p></strong>
-      <p class="mb-4">Seja você uma pessoa buscando fazer a diferença ou uma organização precisando de suporte, a Unite Social é o lugar certo para você. Junte-se a nós e participe dessa corrente do bem, transformando intenções em ações e criando um impacto duradouro.!</p>
+      <strong><p>Join Us</p></strong>
+      <p class="mb-4">Whether you are an individual looking to make a difference or an organization in need of support, Unite Social is the right place for you. Join us and be part of this chain of goodwill, turning intentions into actions and creating lasting impact!</p>
 
-      <strong><p>Como Funciona</p></strong>
-      <p class="mb-4">A plataforma Unite Social oferece uma interface amigável onde:</p>
-      <strong><p>Voluntários e Doadores:</p></strong>
-      <p class="mb-4">Podem pesquisar e encontrar oportunidades de voluntariado e locais para doação perto de onde estão ou em localidades específicas. Basta inserir a localização desejada e explorar as opções disponíveis.</p><br>
-      <strong><p>Organizações:</p></strong>
-      <p class="mb-4">Podem se registrar gratuitamente, criar um perfil detalhado e listar suas necessidades de doação e oportunidades de voluntariado. Isso aumenta a visibilidade e facilita a captação de recursos e ajuda voluntária.</p><br>
-
-
-      <%= link_to "BACK", root_path, class: "button-custom"%>
-      <div class="d-flex justify-content-center"><a href="#"><i class="fas fa-angle-up" id="homeBtn"></i></a></div>
+      <strong><p>How It Works</p></strong>
+      <p class="mb-4">The Unite Social platform offers a user-friendly interface where:</p>
+      <strong><p>Volunteers and Donors:</p></strong>
+      <p class="mb-4">Can search and find volunteering opportunities and donation locations near them or in specific locations. Simply enter the desired location and explore the available options.</p><br>
+      <strong><p>Organizations:</p></strong>
+      <p>Can register for free, create a detailed profile, and list their donation needs and volunteering opportunities. This increases visibility and facilitates fundraising and volunteer assistance.</p>
+      <strong><p>Team:</p></strong>
+      <ul class="team-unite">
+        <li><i class="fa-solid fa-thumbs-up"></i> <%= link_to "Felipe", "https://github.com/imbimbo", class: "team-member" %></li>
+        <li><i class="fa-solid fa-thumbs-up"></i> <%= link_to "Ricardo", "https://github.com/rcdrodrigues", class: "team-member" %></li>
+        <li><i class="fa-solid fa-thumbs-up"></i> <%= link_to "Guilherme", "https://github.com/SaonMonsieur", class: "team-member" %></li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= image_tag 'team-unite.jpg', class: "photo-unite"%>
     </div>
   </div>
 <%= image_tag 'unite_about_arv.jpg', class: "d-block w-50 about-img"%>

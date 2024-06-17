@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [ :home, :about ]
 
   def home
     @movements_per_user = Movement.group(:user_id).count
@@ -8,5 +8,8 @@ class PagesController < ApplicationController
                         .group(:id)
                         .order('COUNT(participants.id) DESC')
                         .limit(2)
+  end
+
+  def about
   end
 end
