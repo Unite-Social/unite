@@ -56,6 +56,7 @@ gem "pundit"
 gem "geocoder"
 gem "chartkick"
 gem 'groupdate'
+gem "cloudinary"
 
 group :development, :test do
   gem "dotenv-rails"
