@@ -9,3 +9,15 @@
 @import "map";
 @import "chatroom";
 @import "show";
+
+
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.h-100vh {
+  height: 100vh;
+}

@@ -1,53 +1,19 @@
-<div class="cointainer p-5">
-  <% if user_signed_in? %>
-  <h1>Hello, <%= current_user.name %>!</h1>
-  <% else %>
-  <h1>Hello!</h1>
-  <% end %>
-  <div class="my-5 d-flex gap-3">
+<body class="body-home">
+  <div class="cointainer m-5">
+    <% if user_signed_in? %>
+    <h1>Hello, <%= current_user.name %>!</h1>
+    <% else %>
+    <h1>Hello!</h1>
+    <% end %>
+    <div class="my-5 d-flex gap-3 justify-content-evenly">
+      <%= render "cards_home" %>
+    </div>
 
-    <%= link_to movements_path do %>
-    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-      Check Social Movements
-    </div>
-    <% end %>
-    <%= link_to movements_path do %>
-    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-      Check Social Movements
-    </div>
-    <% end %>
-    <%= link_to movements_path do %>
-    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-      Check Social Movements
-    </div>
-    <% end %>
-    <%= link_to movements_path do %>
-    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-      Check Social Movements
-    </div>
-    <% end %>
-    <%= link_to movements_path do %>
-    <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-      Check Social Movements
-    </div>
-    <% end %>
 
-  </div>
-
-<% if Movement.exists? %>
-  <%= link_to Movement.last do %>
-  <div class="card-new">
-    <img src="<%= asset_path 'beach.jpeg' %>" />
-    <div class="card-new-infos">
-      <div>
-        <h2><%= Movement.last.name %></h2>
-        <h3><%= Movement.last.description %></h3>
-      </div>
-      <h3 class="card-new-rewards"><%= Movement.last.rewards %></h3>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>" class="card-new-user avatar-bordered" />
+    <!-- CHARTS -->
+    <div class="my-5">
+            <h3>Graphs</h3>
+      <%= render "charts" %>
     </div>
   </div>
-  <% end %>
-<% end %>
-
-</div>
+</body>
