@@ -4,14 +4,14 @@ class MovementsController < ApplicationController
 
   def index
     @movements = policy_scope(Movement)
-
     # The `geocoded` scope filters only flats with coordinates
 
     @markers = @movements.geocoded.map do |m|
       {
         lat: m.latitude,
         lng: m.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {m: m})
+        info_window_html: render_to_string(partial: "info_window", locals: {m: m}),
+        info_window_open: false
       }
     end
   end
@@ -28,7 +28,8 @@ class MovementsController < ApplicationController
     @markers = [{
       lat:  @movement.latitude,
       lng:  @movement.longitude,
-      info_window_html: render_to_string(partial: "info_window", locals: {m:  @movement})
+      info_window_html: render_to_string(partial: "info_window", locals: {m:  @movement}),
+      info_window_open: true
       }]
 
 

@@ -1,3 +1,31 @@
-<h2><%= m.name %></h2>
-<p><%= m.address %></p>
-<%= link_to "GO", movement_path(m), class: "btn btn-primary"%>
+<div class="row popup-content">
+  <div class="col-4">
+    <% if m.photo.key.present? %>
+      <%= cl_image_tag m.photo.key, height: 150, width: 150, class: "img-card-index", crop: :fill %>
+      <i class="fa-solid fa-location-dot me-2 mt-3"></i><%= m.address %>
+    <% else %>
+      <%= image_tag "kids.jpg", height: 150, width: 150, class: "img-card-index", crop: :fill %>
+      <i class="fa-solid fa-location-dot me-2 mt-3"></i><%= m.address %>
+    <% end %>
+    <%# <%= cl_image_tag m.photo.key, height: 150, width: 150 %>
+  </div>
+  <div class="col-8">
+    <div class="d-flex flex-column bd-highlight mb-3 justify-content-start">
+      <div>
+        <h3 class="p-2 bd-highlight text-start"><%= m.name %></h3>
+      </div>
+      <div>
+        <p class="p-2 bd-highlight text-start"><i class="fa-solid fa-phone me-2"></i><%= m.contact %></p>
+      </div>
+      <div>
+        <p class="p-2 bd-highlight text-start"><i class="fa-regular fa-clock me-2"></i><%= "#{m.date.hour}:#{format('%02d', m.date.min)}" %></p>
+      </div>
+      <div>
+        <p class="p-2 bd-highlight text-start">Organized by: <strong><%= m.user.name.capitalize %></strong></p>
+      </div>
+    </div>
+    <div>
+      <%= link_to "Check this movement!", movement_path(m), class: "zoom-button d-flex justify-content-center mt-3"%>
+    </div>
+  </div>
+</div>
