@@ -14,7 +14,7 @@ export default class extends Controller {
 
     this.map = new mapboxgl.Map({
       container: this.element,
-      style: "mapbox://styles/mapbox/streets-v10"
+      style: "mapbox://styles/guilhermeronchi/clxknyaz501rd01qm25uu8uml"
     })
 
     this.#addMarkersToMap()
@@ -22,18 +22,20 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-      new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
+    this.markersValue.forEach((a_marker) => {
+      const popup = new mapboxgl.Popup({ closeOnClick: false, maxWidth: '540px', maxHeight: '640px' }).setHTML(a_marker.info_window_html)
+      const marker = new mapboxgl.Marker()
+        .setLngLat([ a_marker.lng, a_marker.lat ])
         .setPopup(popup)
         .addTo(this.map)
+
+      if (a_marker.info_window_open) { marker.togglePopup() };
     });
   }
 
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 190, maxZoom: 15, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 190, maxZoom: 17.3, duration: 0 })
   }
 }
