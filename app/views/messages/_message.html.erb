@@ -1,5 +1,5 @@
 <div id="message<%= message.id %>">
-  <div class="d-flex <%= 'flex-row-reverse' if message.user.id == current_user.id %>">
+  <div class="d-flex <%= 'flex-row-reverse w-100' if message.user.id == current_user.id %>">
     <% unless message.user.id == current_user.id %>
       <% if message.user.photo.key? %>
         <%= cl_image_tag message.user.photo.key, class: "avatar-bordered" %>
