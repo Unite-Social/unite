@@ -1,7 +1,7 @@
 .chatroom {
   background: white;
   margin-top: 9px;
-  height: calc(100vh - 75px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -15,8 +15,9 @@
 
   .messages {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
     padding: 1rem;
+    background-image: url("chat-bg");
   }
 
   #new_message {
@@ -27,4 +28,26 @@
       margin-bottom: 0;
     }
   }
+
+  .btn-message {
+    background-color: $green;
+  }
+
+  .message-name {
+    font-size: 16px;
+    font-weight: 600 ;
+    color: $green;
+  }
+
+  .message-time {
+    color: #ffffff;
+    margin-left: 8px;
+    font-size: 12px;
+  }
+
+  .message-pill {
+    border-radius: 20px;
+
+  }
+
 }

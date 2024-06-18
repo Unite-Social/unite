@@ -1,0 +1,40 @@
+.popup-content {
+  max-height: 640px;
+  max-width: 540px;
+  border-radius: 15px; /* Define o raio da borda */
+  overflow: hidden; /* Para evitar que o conteúdo ultrapasse as bordas arredondadas */
+}
+
+.mapboxgl-popup-content {
+  border-radius: 15px; /* Define o raio da borda */
+  overflow: hidden; /* Para evitar que o conteúdo ultrapasse as bordas arredondadas */
+}
+
+.popup-content img {
+  border: 3px solid #BCFB23;
+  border-radius: 10px;
+}
+.popup-content p {
+  color: rgb(0, 0, 0);
+}
+
+.popup-content h2 {
+  color: rgb(0, 0, 0);
+}
+
+.zoom-button {
+  background: linear-gradient(to right, #BCFB23, #A3E635);
+  color: #0C0C0C;
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  font-size: 15px;
+}
+
+.zoom-button:hover {
+  color: #ffffff;
+}
+
+.fa-phone {
+  font-weight: 900;
+}

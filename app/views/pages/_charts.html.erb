@@ -1,57 +1,74 @@
 <div class="d-flex justify-content-evenly">
+  <!-- Movements graph -->
+  <div>
+    <p>Number of events per Org</p>
+    <% labels_movements = @movements_per_user.keys.map { |id| User.find(id).name } %>
+    <% data_movements = @movements_per_user.values %>
+    <canvas id="movementsChart" width="400" height="400"></canvas>
+  </div>
 
-        <!--Movements graph-->
-        <div>
-        <p>Number of events per Org</p>
-          <% labels = @movements_per_user.keys.map { |id| User.find(id).name } %>
-          <% data = @movements_per_user.values %>
-          <canvas id="movementsChart" width="400" height="400"></canvas>
-          <script>
-            const movementsCtx = document.getElementById('movementsChart').getContext('2d');
-            const movementsChart = new Chart(movementsCtx, {
-              type: 'pie',
-              data: {
-                labels: <%= raw labels.to_json %>,
-                datasets: [{
-                  label: '# of Movements',
-                  data: <%= raw data.to_json %>,
-                  borderWidth: 1
-                }]
-              },
-              options: {
+  <!-- Participants graph -->
+  <div>
+    <p>Number of participants per event</p>
+    <% labels_participants = @participants_per_movement.keys.map { |id| Movement.find(id).name } %>
+    <% data_participants = @participants_per_movement.values %>
+    <canvas id="participantsChart" width="400" height="400"></canvas>
+  </div>
+</div>
 
-              }
-            });
-          </script>
-        </div>
+<script>
+  document.addEventListener('turbo:load', function() {
+    // Function to initialize charts
+    function initializeCharts() {
+      // Movements Chart
+      const movementsCtx = document.getElementById('movementsChart').getContext('2d');
+      new Chart(movementsCtx, {
+        type: 'pie',
+        data: {
+          labels: <%= raw labels_movements.to_json %>,
+          datasets: [{
+            label: '# of Movements',
+            data: <%= raw data_movements.to_json %>,
+            borderWidth: 1
+          }]
+        },
+        options: {}
+      });
 
-        <!--Participants graph-->
+      // Participants Chart
+      const participantsCtx = document.getElementById('participantsChart').getContext('2d');
+      new Chart(participantsCtx, {
+        type: 'bar',
+        data: {
+          labels: <%= raw labels_participants.to_json %>,
+          datasets: [{
+            label: '# of Participants',
+            backgroundColor: ['#BCFB23'],
+            data: <%= raw data_participants.to_json %>,
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
+    }
 
-        <div>
-        <p>Number of participants per event</p>
-          <% labels = @participants_per_movement.keys.map { |id| Movement.find(id).name } %>
-          <% data = @participants_per_movement.values %>
-          <canvas id="participantsChart" width="400" height="400"></canvas>
-          <script>
-            const participantsCtx = document.getElementById('participantsChart').getContext('2d');
-            const participantsChart = new Chart(participantsCtx, {
-              type: 'bar',
-              data: {
-                labels: <%= raw labels.to_json %>,
-                datasets: [{
-                  label: '# of Participants',
-                  data: <%= raw data.to_json %>,
-                  borderWidth: 1
-                }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-              }
-            });
-          </script>
-        </div>
-      </div>
+    // Initialize charts on page load
+    initializeCharts();
+
+    // Function to reinitialize charts when the page becomes visible
+    function handleVisibilityChange() {
+      if (!document.hidden) {
+        initializeCharts();
+      }
+    }
+
+    // Event listener for visibility change
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  });
+</script>

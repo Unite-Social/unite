@@ -25,17 +25,17 @@
     <h3>Trending</h3>
     <div class="d-flex justify-content-evenly">
       <% if Movement.exists? %>
-      <%= link_to @top_movements[0] do %>
+      <%= link_to @top_movements.first do %>
       <div class="card-new">
         <img src="<%= asset_path 'beach.jpeg' %>" />
         <div class="card-new-infos">
           <div>
-            <h2><%= @top_movements[0].name %></h2>
-            <h3>Is rocking with <%= @top_movements[0].participants.count %> participants!</h3>
+            <h2><%= @top_movements.first.name %></h2>
+            <h3>Is rocking with <%= @top_movements.first.participants.count %> participants!</h3>
           </div>
-          <h3 class="card-new-rewards"><%= @top_movements[0].rewards %></h3>
-         <% if @top_movements[0].photo.key? %>
-            <%= cl_image_tag @top_movements[0].photo.key, class:"card-new-user avatar-bordered" %>
+          <h3 class="card-new-rewards"><%= @top_movements.first.rewards %></h3>
+         <% if @top_movements.first.photo.key? %>
+            <%= cl_image_tag @top_movements.first.photo.key, class:"card-new-user avatar-bordered" %>
             <% else %>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
             class="card-new-user avatar-bordered" />
@@ -45,17 +45,17 @@
       <% end %>
       <% end %>
       <% if Movement.exists? %>
-      <%= link_to @top_movements[1] do %>
+      <%= link_to @top_movements.last do %>
       <div class="card-new">
         <img src="<%= asset_path 'beach.jpeg' %>" />
         <div class="card-new-infos">
           <div>
-            <h2><%= @top_movements[1].name %></h2>
-            <h3>Is rocking with <%= @top_movements[1].participants.count %> participants!</h3>
+            <h2><%= @top_movements.last.name %></h2>
+            <h3>Is rocking with <%= @top_movements.last.participants.count %> participants!</h3>
           </div>
-          <h3 class="card-new-rewards"><%= @top_movements[1].rewards %></h3>
-          <% if @top_movements[1].photo.key? %>
-            <%= cl_image_tag @top_movements[1].photo.key, class:"card-new-user avatar-bordered" %>
+          <h3 class="card-new-rewards"><%= @top_movements.last.rewards %></h3>
+          <% if @top_movements.last.photo.key? %>
+            <%= cl_image_tag @top_movements.last.photo.key, class:"card-new-user avatar-bordered" %>
             <% else %>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
             class="card-new-user avatar-bordered" />
