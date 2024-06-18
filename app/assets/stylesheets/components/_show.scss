@@ -1,0 +1,96 @@
+  .banner {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .btn {
+    min-width: 150px;
+  }
+
+  .show-custom-datetime {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .show-custom-datetime i {
+    margin-right: 0.5rem;
+  }
+
+  .container.p-3 {
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+
+  .card-text {
+    margin-bottom: 0.75rem;
+  }
+
+  .show-all {
+    background-color: greenyellow;
+    color: #111010;
+  }
+
+  .show-custom {
+    background: linear-gradient(to right, #BCFB23, #A3E635);
+    color: #0c0c0c;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .show-custom-danger {
+    background: linear-gradient(to right, #f70303, #fa0303);
+    color: #2e2d2d;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .show-custom:hover {
+    background: linear-gradient(to right, #A3E635, #BCFB23);
+    color: rgb(19, 18, 18);
+  }
+
+  .show-focus {
+    outline: none;
+  }
+
+  .admin-buttons {
+    position: fixed;
+    bottom: 35%;
+    right: 20px;
+  }
+
+  .show-custom-sucess {
+    background: linear-gradient(to right, #BCFB23, #A3E635);
+    color: #0c0c0c;
+    border-radius: 5px;
+    border: none;
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+
+  .show-custom-datetime {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  .show-scroll {
+    overflow-y: scroll;
+    height: 300px; /* Defina a altura do contêiner */
+    border: 1px solid #ccc; /* Apenas para visualização */
+  }

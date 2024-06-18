@@ -21,6 +21,10 @@ class MovementPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def volunteer?
+    !user&.organization?
+  end
+
   private
 
   def user_is_owner?

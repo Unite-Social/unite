@@ -10,15 +10,16 @@
 
 
 
+puts "Criando org"
+  g = User.create(name:"greenpeace", phone:"66688888", organization:true, cnpj: "0202020202021", organization_type: "ong", description:"testetestetes", email: "green@teste.com", password: "123123" )
+  h = User.create(name:"greenpeace2", phone:"66688888", organization:true, cnpj: "0202020202022", organization_type: "ong", description:"testetestetes", email: "green2@tgreen.com", password: "123123")
+puts "Org criado"
+
+
 puts "Create user"
 user2 = User.create(name:"Jucabala", phone:"222111666", cpf:"12345678900", email:"teste@teste.com", password:"123123")
 user1 = User.create(name:"greenpeace", phone:"66688888", organization:true, cnpj: "0202020202021", organization_type: "Ong", description:"testetestetes", email: "green@teste.com", password: "123123" )
 
-puts "Criando user"
-  g = User.create(name:"greenpeace", phone:"66688888", organization:true, cnpj: "0202020202021", organization_type: "ong", description:"testetestetes", email: "green@teste.com", password: "123123" )
-  f = User.create(name:"Jucabala", phone:"222111666", cpf:"12345678900", email:"teste@teste.com", password:"123123")
-
-puts "User: #{user1.name}, #{user2.name} created!"
 
 puts "Criando chat"
 Chatroom.create(name: "general")
