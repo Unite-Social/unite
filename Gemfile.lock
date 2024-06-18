@@ -144,6 +144,7 @@ GEM
     ffi (1.16.3)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
+    gemoji (4.1.0)
     geocoder (1.8.3)
       base64 (>= 0.1.0)
       csv (>= 3.0.0)
@@ -334,6 +335,7 @@ DEPENDENCIES
   error_highlight (>= 0.4.0)
   ffi (~> 1.16.3)
   font-awesome-sass (~> 6.1)
+  gemoji
   geocoder
   groupdate
   importmap-rails (~> 1.2.3)
