@@ -4,11 +4,11 @@
       <span class="text-details">DO YOU WANT TO HELP PEOPLE?</span> START A MOVEMENT <span class="text-details">NOW!</span>
     </h1>
   </div>
-  <div class="col-6 bg-black text-white d-flex justify-content-center">
+  <div class="col-6 bg-dark text-white d-flex justify-content-center">
     <%= simple_form_for [@movement] do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="movement-form-inputs">
         <%= f.input :photo, as: :file, required: true, label: false, placeholder: "Upload Photo" %>
         <%= f.input :name, required: true, autofocus: true, label: false, placeholder: "Name" %>
         <%= f.input :date, required: true, autofocus: true, label: false, placeholder: "Date" %>
@@ -18,7 +18,7 @@
         <%= f.input :contact, required: true, autofocus: true, label: false, placeholder: "Contact" %>
       </div>
 
-      <div class="form-actions">
+      <div class="movement-form-actions">
         <%= f.button :submit, "Create the social event", class: "new-button w-100 mb-3" %>
         <%= link_to "Return", movements_path, id: "return-button" %>
       </div>

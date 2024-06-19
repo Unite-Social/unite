@@ -10,37 +10,19 @@
   align-items: center;
 }
 
-.bg-black {
-  background-color: black;
-}
 
 .text-white {
   color: white;
 }
 
-.form-inputs {
+.movement-form-inputs {
   padding: 50px;
 }
 
-.form-actions {
+.movement-form-actions {
   padding: 50px;
 }
 
-input[type="file"], input[type="text"], input[type="date"], textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 1em;
-}
-
-input[type="file"]:focus, input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
-  outline: none;
-  border: 2px solid rgb(34, 255, 0);
-  box-shadow: 0 0 5px rgba(26, 255, 0, 0.5);
-}
 
 .new-button {
   background: linear-gradient(to right, #BCFB23, #A3E635);

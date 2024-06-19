@@ -4,7 +4,7 @@
 <% if Movement.exists? %>
 
   <% @movements.each do |movement| %>
-  <%= link_to movement do %>
+  <%= link_to zoom_movement_path(movement) do %>
   <div class="card">
     <div class="content d-flex flex-column h-100 justify-content-between text-center">
       <p class="heading mb-1"><%= movement.name %>
