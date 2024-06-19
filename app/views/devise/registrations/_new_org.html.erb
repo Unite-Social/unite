@@ -1,52 +1,31 @@
 <div data-toggle-target="orgForm" class="d-none d-flex flex-column">
-<h2 class="text-center">Sign up for ORGs</h2>
+<h2 class="fw-bold mb-3 text-uppercase text-white">Sign up as organization</h2>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+  <%= f.error_notification %>
 
-    <div class="form-inputs row">
-      <!-- First Column -->
-      <div class="col-md-6">
-        <%= f.input :photo, as: :file,
-                    required: true %>
-        <%= f.input :name,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :phone,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :cnpj,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :organization,
-                    input_html: { value: true },
-                    as: :hidden %>
-        <%= f.input :organization_type, collection: User::ORGANIZATION_TYPES,
-                    selected: "Ong",
-                    required: true,
-                    autofocus: true %>
-      </div>
-
-      <!-- Second Column -->
-      <div class="col-md-6">
-        <%= f.input :description,
-                    required: true,
-                    autofocus: true %>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-      </div>
+  <div class="form-inputs row">
+    <!-- First Column -->
+    <div class="col-md-6">
+      <%= f.input :photo, as: :file, required: true, label_html: { class: 'custom-label' } %>
+      <%= f.input :name, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+      <%= f.input :phone, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+      <%= f.input :cnpj, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+      <%= f.input :organization, input_html: { value: true }, as: :hidden, label_html: { class: 'custom-label' } %>
+      <%= f.input :organization_type, collection: User::ORGANIZATION_TYPES, selected: "Ong", required: true, autofocus: true, label_html: { class: 'custom-label' } %>
     </div>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class:"btn btn-primary w-100 center" %>
+    <!-- Second Column -->
+    <div class="col-md-6">
+      <%= f.input :description, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+      <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, label_html: { class: 'custom-label' } %>
+      <%= f.input :password, required: true, input_html: { autocomplete: "new-password", placeholder: '6 characters minimum' }, label_html: { class: 'custom-label' } %>
+      <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, label_html: { class: 'custom-label' } %>
     </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up", class:"btn btn-outline-light btn-lg px-5" %>
+  </div>
   <% end %>
+
 </div>

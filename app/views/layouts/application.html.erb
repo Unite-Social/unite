@@ -16,20 +16,15 @@
 
   <body id="body">
     <%= render "shared/flashes" %>
-
     <div class="d-flex">
 
-      <%= render "shared/sidebar" unless devise_controller? %>
-      <% if devise_controller? %>
-      <%= yield %>
-      <% else %>
+      <%= render "shared/sidebar" %>
+
       <div class="container-general" data-sidebar-target='container'>
-      <%= yield %>
+        <%= yield %>
       </div>
-      <% end %>
+
     </div>
   </body>
-
 </div>
-
 </html>

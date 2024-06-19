@@ -31,7 +31,7 @@
       </ul>
       <div class="mt-auto">
         <% if user_signed_in? %>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class:"menu-session-end" %>
         <% else %>
         <button type="button" class="menu-session"
           onclick="window.location.href='<%= new_user_session_path %>'">Login</button>

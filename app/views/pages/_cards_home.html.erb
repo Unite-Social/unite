@@ -1,8 +1,16 @@
 <!-- CARDS -->
-      <%= link_to new_user_registration_path do %>
-      <div class="card-join">
-        JOIN US NOW!
-      </div>
+      <% if user_signed_in? %>
+        <%= link_to about_path do %>
+        <div class="card-join">
+          MEET OUR TEAM!
+        </div>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_registration_path do %>
+        <div class="card-join">
+          JOIN US NOW!
+        </div>
+        <% end %>
       <% end %>
       <%= link_to movements_path do %>
       <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
