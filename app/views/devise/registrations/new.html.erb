@@ -1,55 +1,55 @@
-<div class="container w-50 my-5 signup">
+<div class="background">
+  <div class="container py-5 h-100">
+    <div class="d-flex justify-content-center align-items-center h-100 w-100">
+      <div class="d-flex flex-column align-items-center w-100">
+        <div class="card-signup bg-dark text-white w-100" style="border-radius: 1rem;">
+          <div class="card-body p-2 text-center">
 
-  <div data-controller="toggle">
-    <div data-toggle-target="volunteerForm">
-      <h2 class="text-center">Sign up</h2>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= f.error_notification %>
+            <div class="mb-md-5 mt-md-4 pb-3">
 
-        <div class="form-inputs row">
-          <!-- First Column -->
-          <div class="col-md-6">
-            <%= f.input :photo, as: :file,
-                        required: true %>
-            <%= f.input :name,
-                        required: true,
-                        autofocus: true %>
-            <%= f.input :phone,
-                        required: true,
-                        autofocus: true %>
-            <%= f.input :cpf,
-                        required: true,
-                        autofocus: true %>
-          </div>
+              <div class="w-100">
+                <div data-controller="toggle">
+                  <div data-toggle-target="volunteerForm">
+                <h2 class="fw-bold mb-3 text-uppercase text-white">Sign up as volunteer</h2>
+                    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                    <%= f.error_notification %>
 
-          <!-- Second Column -->
-          <div class="col-md-6">
-            <%= f.input :email,
-                        required: true,
-                        autofocus: true,
-                        input_html: { autocomplete: "email" }%>
-            <%= f.input :password,
-                        required: true,
-                        hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                        input_html: { autocomplete: "new-password" } %>
-            <%= f.input :password_confirmation,
-                        required: true,
-                        input_html: { autocomplete: "new-password" } %>
+                    <div class="form-inputs row">
+                      <!-- First Column -->
+                      <div class="col-md-6">
+                        <%= f.input :photo, as: :file, required: true, label_html: { class: 'custom-label' } %>
+                        <%= f.input :name, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+                        <%= f.input :phone, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+                        <%= f.input :cpf, required: true, autofocus: true, label_html: { class: 'custom-label' } %>
+                      </div>
+
+                      <!-- Second Column -->
+                      <div class="col-md-6">
+                        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }, label_html: { class: 'custom-label' } %>
+                        <%= f.input :password, required: true, input_html: { autocomplete: "new-password", placeholder: '6 characters minimum' }, label_html: { class: 'custom-label' } %>
+                        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, label_html: { class: 'custom-label' } %>
+                      </div>
+                    </div>
+
+                    <div class="form-actions text-center">
+                      <%= f.button :submit, "Sign up", class:"btn btn-outline-light btn-lg px-5" %>
+                    </div>
+                    <% end %>
+
+                  </div>
+                  <%= render "new_org", user: @user %>
+                  <button class="btn btn-outline-info btn-sm mt-4 px-5" button data-action="click->toggle#fire"
+                    data-toggle-target="signButton">Do you want to sign up as an ORG? Click here!</button>
+                  <div class="d-none" data-toggle-target="returnButton">
+                    <%= link_to "SIGN UP AS A VOLUNTEER", new_user_registration_path, class:"btn btn-outline-info btn-sm mt-4 px-5" %>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="form-actions text-center">
-          <%= f.button :submit, "Sign up", class:"btn btn-primary w-100 mx-auto" %>
+        <div>
+          <p>Already a member? <%= link_to "Sign In", new_user_session_path, class:"text-white fw-bold" %></p>
         </div>
-      <% end %>
-    </div>
-    <%= render "new_org", user: @user %>
-    <%= render "devise/shared/links" %>
-    <button class="btn btn-success w-100 mt-5" button data-action="click->toggle#fire"
-      data-toggle-target="signButton">Do you want to sign up as an ORG? Click here!</button>
-    <div class="d-none" data-toggle-target="returnButton">
-      <%= link_to "Return", new_user_registration_path %>
-    </div>
-      <%= link_to "Home page", root_path %>
-  </div>
-</div>
+      </div>

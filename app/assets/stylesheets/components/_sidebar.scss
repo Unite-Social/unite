@@ -135,6 +135,23 @@
   transition: opacity 0.2s, transform 0.2s;
 }
 
+.menu-session-end {
+  width: 100%;
+  color: #000000;
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  margin-left: 16px;
+  margin-bottom: 4px;
+}
+
+.menu-session-end:hover {
+  font-weight: bold;
+}
+
+
 .menu-session:hover::before {
   opacity: 1;
   transform: scale(1);
