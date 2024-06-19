@@ -1,54 +1,71 @@
 <div class="d-flex flex-column w-100">
-  <div class="banner mb-3 w-100" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://www.greenpeace.org/static/planet4-brasil-stateless/2022/05/2e84d460-gp0stq160_resize1000_p4-768x512.jpg); height: 200px;" id="banner-image">
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100%;">
+  <div class="banner-tot"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://www.greenpeace.org/static/planet4-brasil-stateless/2022/05/2e84d460-gp0stq160_resize1000_p4-768x512.jpg); "
+    id="banner-image">
+    <div class="filter"></div>
+    <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100%;">
       <h1 class="text-white"><%= @movement.name %></h1>
-    </div>
-  </div>
-    <div class="container show-scroll">
-     <div class="container p-3 border position-relative" p style="text-align:start">
-       <br><div class="form-inputs row">
-          <div class="col-md-6 ">
-          <div>
-            <h6>
-            <p><i class="fa-regular fa-clock"></i>
-            <%="#{format('%02d', @movement.date.hour)}:#{format('%02d', @minutes )}"%>
-            </p>
-            <i class="fa-regular fa-calendar b-3"></i>
-            <%= " #{@movement.date.day}/#{@month}/#{@movement.date.year}" %>
-            </h6>
-          </div>
-            <p class="card-text"><strong>Resposible Entity: </strong><span id="creator"><%= "#{@movement.user.name.capitalize}" %></span></p>
-            <p class="card-text"><strong>Address: </strong><span id="address"><%= "#{@movement.address.capitalize}" %></span></p>
-            <p class="card-text"><strong>Rewards: </strong><span id="rewards"><%= "#{@movement.rewards.capitalize}" %></span></p>
-            <p class="card-text"><i class="fa-solid fa-phone"></i> <%= link_to "Contact", "#{@movement.contact}", id: "contact-link" %></p>
-          </div>
-          <div class="col-md-6 ">
-            <p class="card-text "><strong>Description: </strong><span id="description"><%= @movement.description %></span></p>
-              <div class="d-flex flex-wrap">
-                <% if policy(@movement).volunteer? %>
-                <%= link_to "Confirm Participation", movement_participants_path(@movement), data: { turbo_method: :post, turbo_confirm: "Tem certeza?" }, class: "show-custom me-3 mb-3 " %>
-                <% end %>
-                <%= link_to "Return", movements_path, class: "show-custom me-3 mb-3" %>
-                <% if policy(@movement).edit? %>
-                <button id="edit-button" class="show-custom me-3 mb-3">Edit this Event</button>
-                <% end %>
-                <button id="save-button" class="show-custom-sucess me-3 mb-3" style="display: none;">Save Changes</button>
-                <% if policy(@movement).destroy? %>
-                <%= button_to "Delete this Event", @movement, class: "show-custom-danger me-3 mb-3", method: :delete %>
-                <% end %>
-              </div>
-          </div>
-        </div>
-
-      <!-- Campo para upload de nova imagem -->
-      <div class="mt-3" id="image-upload-container" style="display: none;">
-        <label for="image-upload">Upload New Image</label>
-        <input type="file" id="image-upload" class="form-control">
+      <h5 class="text-white"><strong>By </strong><span id="creator"> <%= "#{@movement.user.name.capitalize}" %></span>
+      </h5>
+      <div>
+        <% if policy(@movement).volunteer? %><br>
+        <%= link_to "JOIN THIS EVENT", movement_participants_path(@movement), data: { turbo_method: :post, turbo_confirm: "Tem certeza?" }, class: "show-custom-event d-flex justify-content-center align-items-center flex-column text-start" %>
+        <% end %>
       </div>
+    </div>
+    <div class="container show-scroll">
+      <div class="container position-relative " p style="text-align:start"><br>
+        <h3 class="text-white">
+          <p class="text-white p-1"><i class="fa-regular fa-clock text-white"></i>
+            <%="#{format('%02d', @movement.date.hour)}:#{format('%02d', @minutes )}"%>
+          </p>
+          <i class="fa-regular fa-calendar b-3 text-white p-2"></i>
+          <%= " #{@movement.date.day}/#{@month}/#{@movement.date.year}" %>
+
+          <div class="card-show align-items-start">
+            <h6 class="card-text p-2"><strong>Address: </strong><span
+                id="address"><%= "#{@movement.address.capitalize}" %></span></h6>
+            <h6 class="card-text p-2"><strong>Rewards: </strong><span
+                id="rewards"><%= "#{@movement.rewards.capitalize}" %></span></h6>
+            <h6 class="card-text p-2"><i class="fa-solid fa-phone text-white"></i>
+              <%= link_to "Contact", "#{@movement.contact}", id: "contact-link " %></h6>
+            <h5 class="card-text p-1"><strong>Description: </strong><span
+                id="description"><%= @movement.description %></span></h5><br>
+            <div class="form-inputs row">
+              <div class="w-100 align-items-start">
+                <div class="d-flex flex-wrap justify-content-start">
+                  <% if policy(@movement).edit? %>
+                  <button id="edit-button" class="show-custom me-3 mb-3">Edit this Event</button>
+                  <% end %>
+                  <button id="save-button" class="show-custom-sucess me-3 mb-3 text-start" style="display: none;">Save
+                    Changes</button>
+                </div>
+                <div>
+                  <% if policy(@movement).destroy? %>
+                  <%= button_to "Delete this Event", @movement, class: "show-custom-danger me-3 mb-3 text-start", method: :delete %>
+                  <% end %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          </p>
+      </div>
+      </h3>
     </div>
   </div>
 </div>
+</div>
+</div>
 
+<!-- Campo para upload de nova imagem -->
+<div class="mt-3" id="image-upload-container" style="display: none;">
+  <label for="image-upload">Upload New Image</label>
+  <input type="file" id="image-upload" class="form-control">
+</div>
+</div>
+</div>
+</div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
@@ -61,41 +78,40 @@
     const bannerImage = document.getElementById('banner-image');
     const imageUploadContainer = document.getElementById('image-upload-container');
     const imageUploadInput = document.getElementById('image-upload');
-
     editButton.addEventListener('click', function() {
-      addressSpan.innerHTML = `<input type="text" id="edit-address" value="${addressSpan.textContent}" class="form-control">`;
-      rewardsSpan.innerHTML = `<input type="text" id="edit-rewards" value="${rewardsSpan.textContent}" class="form-control">`;
-      descriptionSpan.innerHTML = `<textarea id="edit-description" class="form-control">${descriptionSpan.textContent}</textarea>`;
-      contactLink.innerHTML = `<input type="text" id="edit-contact" value="${contactLink.textContent}" class="form-control">`;
+      addressSpan.innerHTML =
+        `<input type="text" id="edit-address" value="${addressSpan.textContent}" class="form-control">`;
+      rewardsSpan.innerHTML =
+        `<input type="text" id="edit-rewards" value="${rewardsSpan.textContent}" class="form-control">`;
+      descriptionSpan.innerHTML =
+        `<textarea id="edit-description" class="form-control">${descriptionSpan.textContent}</textarea>`;
+      contactLink.innerHTML =
+        `<input type="text" id="edit-contact" value="${contactLink.textContent}" class="form-control">`;
       imageUploadContainer.style.display = 'block';
       editButton.style.display = 'none';
       saveButton.style.display = 'inline-block';
     });
-
     saveButton.addEventListener('click', function() {
       const newAddress = document.getElementById('edit-address').value;
       const newRewards = document.getElementById('edit-rewards').value;
       const newDescription = document.getElementById('edit-description').value;
       const newContact = document.getElementById('edit-contact').value;
-
       addressSpan.textContent = newAddress;
       rewardsSpan.textContent = newRewards;
       descriptionSpan.textContent = newDescription;
       contactLink.textContent = newContact;
       contactLink.href = newContact;
-
       if (imageUploadInput.files && imageUploadInput.files[0]) {
         const reader = new FileReader();
         reader.onload = function(e) {
-          bannerImage.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(${e.target.result})`;
+          bannerImage.style.backgroundImage =
+            `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(${e.target.result})`;
         }
         reader.readAsDataURL(imageUploadInput.files[0]);
       }
-
       editButton.style.display = 'inline-block';
       saveButton.style.display = 'none';
       imageUploadContainer.style.display = 'none';
-
     });
   });
 </script>
