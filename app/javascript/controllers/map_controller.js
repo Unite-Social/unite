@@ -47,7 +47,7 @@ export default class extends Controller {
   #centerPopup(markerData) { // Função adicionada
     this.map.flyTo({
       center: [markerData.lng, markerData.lat],
-      zoom: 15,
+      zoom: 17.3,
       essential: true
     })
 
@@ -65,6 +65,6 @@ export default class extends Controller {
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 190, maxZoom: 10, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 190, maxZoom: 17.3, duration: 0 })
   }
 }
