@@ -1,40 +1,80 @@
 .popup-content {
-  max-height: 640px;
-  max-width: 540px;
-  border-radius: 15px; /* Define o raio da borda */
-  overflow: hidden; /* Para evitar que o conteúdo ultrapasse as bordas arredondadas */
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: #fff;
+
+  .image-section, .content-section {
+    padding: 8px;
+  }
+
+  .image-section {
+    width: 100%;
+    flex: 1 1 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 28px;
+    margin-right: 10px;
+    margin-left: 10px;
+
+    .img-card-index {
+      max-width: 100%;
+      height: auto;
+      border: 3px solid #BCFB23;
+      border-radius: 10px;
+    }
+
+    .fa-location-dot {
+      margin-top: 1rem;
+    }
+  }
+
+  .content-section {
+    flex: 2 1 300px;
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin: 0 0 0.5rem 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .zoom-button {
+      background: #0C0C0C;
+      color: #BCFB23;
+      border-radius: 5px;
+      border: none;
+      padding: 5px 10px;
+      font-size: 15px;
+
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .popup-content {
+    flex-direction: column;
+    align-items: center;
+
+    .image-section, .content-section {
+      flex: 1 1 auto;
+      padding: 0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 
 .mapboxgl-popup-content {
-  border-radius: 15px; /* Define o raio da borda */
-  overflow: hidden; /* Para evitar que o conteúdo ultrapasse as bordas arredondadas */
-}
-
-.popup-content img {
-  border: 3px solid #BCFB23;
-  border-radius: 10px;
-}
-.popup-content p {
-  color: rgb(0, 0, 0);
-}
-
-.popup-content h2 {
-  color: rgb(0, 0, 0);
-}
-
-.zoom-button {
-  background: linear-gradient(to right, #BCFB23, #A3E635);
-  color: #0C0C0C;
-  border-radius: 5px;
-  border: none;
-  padding: 5px 10px;
-  font-size: 15px;
-}
-
-.zoom-button:hover {
-  color: #ffffff;
-}
-
-.fa-phone {
-  font-weight: 900;
+  padding: 0;
+  border-radius: 16px;
 }

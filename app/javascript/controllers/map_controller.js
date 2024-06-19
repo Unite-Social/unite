@@ -23,14 +23,43 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((a_marker) => {
-      const popup = new mapboxgl.Popup({ closeOnClick: false, maxWidth: '540px', maxHeight: '640px' }).setHTML(a_marker.info_window_html)
+      const popup = new mapboxgl.Popup({ closeOnClick: false, maxWidth: '600px', maxHeight: '200px' }).setHTML(a_marker.info_window_html)
       const marker = new mapboxgl.Marker()
         .setLngLat([ a_marker.lng, a_marker.lat ])
-        .setPopup(popup)
         .addTo(this.map)
 
-      if (a_marker.info_window_open) { marker.togglePopup() };
-    });
+      // Remover pop-up existente, se houver
+
+
+      // Configurar novo pop-up
+      marker.setPopup(popup)
+
+      // Registrar evento de clique no marcador
+      marker.getElement().addEventListener('click', () => {
+        this.#centerPopup(a_marker)
+      })
+
+      // Toggle do pop-up se estiver aberto por padrão
+      if (a_marker.info_window_open) { marker.togglePopup() }
+    })
+  }
+
+  #centerPopup(markerData) { // Função adicionada
+    this.map.flyTo({
+      center: [markerData.lng, markerData.lat],
+      zoom: 17.3,
+      essential: true
+    })
+
+    // Esperar até que a animação de flyTo seja concluída
+    this.map.once('moveend', () => {
+
+
+      // Ajustar o mapa para que o popup fique visível
+      const popupHeight = popup._content.offsetHeight
+      const offset = popupHeight / 2 / Math.pow(2, this.map.getZoom())
+      this.map.panBy([0, -offset], { duration: 500 })
+    })
   }
 
   #fitMapToMarkers() {
