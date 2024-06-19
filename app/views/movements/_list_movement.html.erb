@@ -1,10 +1,10 @@
 <%= link_to "Start a movement", new_movement_path , class:"list-link btn btn-primary" if policy(Movement).new? %>
 <ul class="cards d-flex flex-row flex-wrap justify-content-start m-3 gap-3">
   <% @movements.each do |movement| %>
-
+  <%= link_to movement do %>
   <div class="card">
-    <div class="content d-flex flex-column h-100 justify-content-between">
-      <p class="heading"><%= movement.name %>
+    <div class="content d-flex flex-column h-100 justify-content-between text-center">
+      <p class="heading mb-1"><%= movement.name %>
         <div class="d-flex flex-column">
       </p>
       <p class="para d-flex flex-column">
@@ -15,5 +15,6 @@
     </div>
   </div>
   </div>
+  <% end %>
   <% end %>
 </ul>

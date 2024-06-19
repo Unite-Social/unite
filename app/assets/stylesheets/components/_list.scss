@@ -32,7 +32,7 @@
 .content .heading {
   color: #000000;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .content .para {
@@ -48,7 +48,7 @@
   font-weight: 600;
   border: none;
   cursor: pointer;
-  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  background: linear-gradient(-45deg, #000000 0%, #000000 100% );
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
@@ -60,7 +60,7 @@
   top: 0;
   width: 100%;
   height: 8px;
-  background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% );
+  background: linear-gradient(-45deg, #74A023  0%, $green 100% );
   z-index: 0;
   transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -75,12 +75,20 @@
 
 .card:hover .btn-card {
   color: #212121;
-  background: #e8e8e8;
+  background: #ffffff;
+}
+
+.card:hover .heading {
+  color: #ffffff;
+}
+
+.card:hover .para {
+  color: #000000;
 }
 
 .content .btn-card:hover {
   outline: 2px solid #e8e8e8;
-  background: transparent;
+  background: #000000;
   color: #e8e8e8;
 }
 
