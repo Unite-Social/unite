@@ -1,74 +1,82 @@
 <!-- CARDS -->
-      <% if user_signed_in? %>
-        <%= link_to about_path do %>
-        <div class="card-join">
-          MEET OUR TEAM!
-        </div>
-        <% end %>
+<% if user_signed_in? %>
+<%= link_to about_path do %>
+<div class="card-join">
+  MEET OUR TEAM!
+</div>
+<% end %>
+<% else %>
+<%= link_to new_user_registration_path do %>
+<div class="card-join">
+  JOIN US NOW!
+</div>
+<% end %>
+<% end %>
+<%= link_to movements_path do %>
+<div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
+  CHECK SOCIAL MOVEMENTS
+</div>
+<% end %>
+<%= link_to Movement.last do %>
+<div class="card-most-new" style="background-image: url(<%= asset_path 'new.png' %>)">
+  ++event++
+</div>
+<% end %>
+<%= link_to movements_path do %>
+<div class="card-ad" style="background-image: url(<%= asset_path 'kids.jpg' %>)">
+  <h4>DO YOU WANT TO <br>HELP CHILDREN AND WIN <br>100R$ ZAFARI VOUCHER <br>CLICK HERE!</h4>
+</div>
+<% end %>
+</div>
+
+<!-- TRENDING -->
+<h3 class="homeBtn fw-bold font-tred ">TRENDING</h3>
+<div class="d-flex justify-content-evenly py-5 rounded trending-back">
+  <% if Movement.exists? %>
+  <%= link_to @top_movements[0] do %>
+  <div class="card-new">
+    <% if @top_movements[0].photo.key? %>
+    <%= cl_image_tag @top_movements[0].photo.key %>
+    <% else %>
+    <img src="<%= asset_path 'beach.jpeg' %>" />
+    <% end %>
+    <div class="card-new-infos">
+      <div>
+        <h2><%= @top_movements[0].name %></h2>
+        <h3>Is rocking with <%= @top_movements[0].participants.count %> participants!</h3>
+      </div>
+      <h3 class="card-new-rewards"><%= @top_movements[0].rewards %></h3>
+      <% if @top_movements[0].user.photo.key? %>
+      <%= cl_image_tag @top_movements[0].user.photo.key, class:"card-new-user avatar-bordered" %>
       <% else %>
-        <%= link_to new_user_registration_path do %>
-        <div class="card-join">
-          JOIN US NOW!
-        </div>
-        <% end %>
-      <% end %>
-      <%= link_to movements_path do %>
-      <div class="card-map" style="background-image: url(<%= asset_path 'map-preview.jpeg' %>)">
-        CHECK SOCIAL MOVEMENTS
-      </div>
-      <% end %>
-      <%= link_to Movement.last do %>
-      <div class="card-most-new" style="background-image: url(<%= asset_path 'new.png' %>)">
-        ++event++
-      </div>
-      <% end %>
-      <%= link_to movements_path do %>
-      <div class="card-ad" style="background-image: url(<%= asset_path 'kids.jpg' %>)">
-        <h4>DO YOU WANT TO <br>HELP CHILDREN AND WIN <br>100R$ ZAFARI VOUCHER <br>CLICK HERE!</h4>
-      </div>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
+        class="card-new-user avatar-bordered" />
       <% end %>
     </div>
-
-    <!-- TRENDING -->
-    <h3>Trending</h3>
-    <div class="d-flex justify-content-evenly">
-      <% if Movement.exists? %>
-      <%= link_to @top_movements.first do %>
-      <div class="card-new">
-        <img src="<%= asset_path 'beach.jpeg' %>" />
-        <div class="card-new-infos">
-          <div>
-            <h2><%= @top_movements.first.name %></h2>
-            <h3>Is rocking with <%= @top_movements.first.participants.count %> participants!</h3>
-          </div>
-          <h3 class="card-new-rewards"><%= @top_movements.first.rewards %></h3>
-         <% if @top_movements.first.photo.key? %>
-            <%= cl_image_tag @top_movements.first.photo.key, class:"card-new-user avatar-bordered" %>
-            <% else %>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
-            class="card-new-user avatar-bordered" />
-          <% end %>
-        </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% if Movement.exists? %>
+  <%= link_to @top_movements[1] do %>
+  <div class="card-new">
+  <% if @top_movements[1].photo.key? %>
+  <%= cl_image_tag @top_movements[1].photo.key %>
+  <% else %>
+    <img src="<%= asset_path 'beach.jpeg' %>" />
+    <% end %>
+    <div class="card-new-infos">
+      <div>
+        <h2><%= @top_movements[1].name %></h2>
+        <h3>Is rocking with <%= @top_movements[1].participants.count %> participants!</h3>
       </div>
+      <h3 class="card-new-rewards"><%= @top_movements[1].rewards %></h3>
+          <% if @top_movements[1].user.photo.key? %>
+      <%= cl_image_tag @top_movements[1].user.photo.key, class:"card-new-user avatar-bordered" %>
+      <% else %>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
+        class="card-new-user avatar-bordered" />
       <% end %>
-      <% end %>
-      <% if Movement.exists? %>
-      <%= link_to @top_movements.last do %>
-      <div class="card-new">
-        <img src="<%= asset_path 'beach.jpeg' %>" />
-        <div class="card-new-infos">
-          <div>
-            <h2><%= @top_movements.last.name %></h2>
-            <h3>Is rocking with <%= @top_movements.last.participants.count %> participants!</h3>
-          </div>
-          <h3 class="card-new-rewards"><%= @top_movements.last.rewards %></h3>
-          <% if @top_movements.last.photo.key? %>
-            <%= cl_image_tag @top_movements.last.photo.key, class:"card-new-user avatar-bordered" %>
-            <% else %>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxksg3HzNZNRNl0v0DAQUtrebHt5cyhy9ldQ&s' %>"
-            class="card-new-user avatar-bordered" />
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
