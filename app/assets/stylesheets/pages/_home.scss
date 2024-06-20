@@ -115,7 +115,7 @@ h4 {
   transform: scale(1.03);
 }
 
-.card-ad {
+.card-kids {
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -134,10 +134,9 @@ h4 {
   transition: transform 0.4s, box-shadow 0.4s;
   transition: transform 0.4s, box-shadow 0.4s;
   position: relative;
-  display: inline-block !important;
 }
 
-.card-ad:hover {
+.card-kids:hover {
   transform: scale(1.03);
 }
 
