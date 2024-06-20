@@ -1,60 +1,53 @@
 <div class="d-flex flex-column w-100">
+  <% if @movement.photo.key?%>
   <div class="banner-tot"
     style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= cl_image_path @movement.photo.key%>'); "
     id="banner-image">
-    <div class="filter"></div>
-    <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100%;">
-      <h1 class="text-white"><%= @movement.name %></h1>
-      <h5 class="text-white"><strong>By </strong><span id="creator"> <%= "#{@movement.user.name.capitalize}" %></span>
-      </h5>
-      <div>
-        <% if policy(@movement).volunteer? %><br>
-        <%= link_to "JOIN THIS EVENT", movement_participants_path(@movement), data: { turbo_method: :post, turbo_confirm: "Tem certeza?" }, class: "show-custom-event d-flex justify-content-center align-items-center flex-column text-start" %>
-        <% end %>
+    <% else %>
+    <div class="banner-tot"
+      style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('<%= image_path "help.jpg" %>'); "
+      id="banner-image">
+      <% end %>
+      <div class="filter"></div>
+      <div class="container d-flex justify-content-center align-items-center flex-column" style="height: 100%;">
+        <h1 class="text-white fw-bolder text-show-title"><%= @movement.name %></h1>
+        <h5 class="text-white"><strong>By </strong><span id="creator"> <%= "#{@movement.user.name.capitalize}" %></span>
+        </h5>
+        <div>
+          <% if policy(@movement).volunteer? %><br>
+          <%= link_to "JOIN THIS EVENT", movement_participants_path(@movement), data: { turbo_method: :post, turbo_confirm: "Tem certeza?" }, class: "show-custom-event d-flex justify-content-center align-items-center flex-column text-start" %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div class="container show-scroll">
-      <div class="container position-relative " p style="text-align:start"><br>
-        <h3 class="text-white">
-          <p class="text-white p-1"><i class="fa-regular fa-clock text-white"></i>
-            <%="#{format('%02d', @movement.date.hour)}:#{format('%02d', @minutes )}"%>
-          </p>
-          <i class="fa-regular fa-calendar b-3 text-white p-2"></i>
-          <%= " #{@movement.date.day}/#{@month}/#{@movement.date.year}" %>
+      <div class="container show-scroll">
+        <div class="container position-relative" p style="text-align:start"><br>
+          <h3 class="text-white">
+            <p class="text-white p-1"><i class="fa-regular fa-clock text-white"></i>
+              <%="#{format('%02d', @movement.date.hour)}:#{format('%02d', @minutes )}"%>
+            </p>
+            <i class="fa-regular fa-calendar b-3 text-white p-2"></i>
+            <%= " #{@movement.date.day}/#{@month}/#{@movement.date.year}" %>
 
-          <div class="card-show align-items-start">
-            <h6 class="card-text p-2"><strong>Address: </strong><span
-                id="address"><%= "#{@movement.address.capitalize}" %></span></h6>
-            <h6 class="card-text p-2"><strong>Rewards: </strong><span
-                id="rewards"><%= "#{@movement.rewards.capitalize}" %></span></h6>
-            <h6 class="card-text p-2"><i class="fa-solid fa-phone text-white"></i>
-              <%= link_to "Contact", "#{@movement.contact}", id: "contact-link " %></h6>
-            <h5 class="card-text p-1"><strong>Description: </strong><span
-                id="description"><%= @movement.description %></span></h5><br>
-            <div class="form-inputs row">
-              <div class="w-100 align-items-start">
-                <div class="d-flex flex-wrap justify-content-start">
-                  <% if policy(@movement).edit? %>
-                  <button id="edit-button" class="show-custom me-3 mb-3">Edit this Event</button>
-                  <% end %>
-                  <button id="save-button" class="show-custom-sucess me-3 mb-3 text-start" style="display: none;">Save
-                    Changes</button>
-                </div>
-                <div>
-                  <% if policy(@movement).destroy? %>
-                  <%= button_to "Delete this Event", @movement, class: "show-custom-danger me-3 mb-3 text-start", method: :delete %>
-                  <% end %>
-                </div>
-              </div>
-
+            <div class="card-show align-items-start" data-controller="edit">
+              <%= render 'info_movement', movement: @movement %>
+              <%= simple_form_for [@movement], html: {class: 'd-none', data: { edit_target: 'form' }} do |f| %>
+              <h6 class="card-text p-2"><strong>Address: </strong></h6>
+              <%= f.input :address, required: true, autofocus: true, label: false, placeholder: "Address" %>
+              <h6 class="card-text p-2"><strong>Rewards: </strong></h6>
+              <%= f.input :rewards, required: true, autofocus: true, label: false, placeholder: "Rewards" %>
+              <h6 class="card-text p-2"><strong>Description: </strong></h6>
+              <%= f.input :description, required: true, autofocus: true, label: false, placeholder: "Description" %>
+              <h6 class="card-text p-2"><strong>Upload New Image: </strong></h6>
+              <%= f.input :photo, as: :file, required: true, label: false, placeholder: "Upload Photo" %>
+              <%= f.button :submit, "Save", class: "show-custom-sucess me-3 mb-3 text-start" %>
+              <% end %>
             </div>
-          </div>
-          </p>
+            </p>
+        </div>
+        </h3>
       </div>
-      </h3>
     </div>
   </div>
-</div>
 </div>
 </div>
 
@@ -66,7 +59,7 @@
 </div>
 </div>
 </div>
-
+<!--
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const editButton = document.getElementById('edit-button');
@@ -115,3 +108,4 @@
     });
   });
 </script>
+!-->

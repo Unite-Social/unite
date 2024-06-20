@@ -48,13 +48,19 @@
   animation-iteration-count: infinite;
 }
 
+.font-tred {
+  font-family: "Lucida Console";
+  font-size: 35px;
+}
+
+
 @keyframes shadow {
   33% {
     color: #FF0066;
   }
 
   66% {
-    color: #ffffff;
+    color: #108ff7;
   }
 
   100% {

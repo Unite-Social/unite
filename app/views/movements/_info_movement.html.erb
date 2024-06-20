@@ -1,0 +1,24 @@
+<div data-edit-target="info">
+  <h6 class="card-text p-2"><strong>Address: </strong><span
+      id="address"><%= "#{movement.address.capitalize}" %></span></h6>
+  <h6 class="card-text p-2"><strong>Rewards: </strong><span
+      id="rewards"><%= "#{movement.rewards.capitalize}" %></span></h6>
+  <h6 class="card-text p-2"><i class="fa-solid fa-phone text-white"></i>
+    <%= link_to "Contact", "#{movement.contact}", id: "contact-link " %></h6>
+  <h5 class="card-text p-1"><strong>Description: </strong><span
+      id="description"><%= movement.description %></span></h5><br>
+  <div class="form-inputs row">
+    <div class="w-100 align-items-start">
+      <div class="d-flex flex-wrap justify-content-start">
+        <% if policy(movement).edit? %>
+        <button id="edit-button" class="show-custom me-3 mb-3" data-action="click->edit#displayForm">Edit this Event</button>
+        <% end %>
+      </div>
+      <div>
+        <% if policy(movement).destroy? %>
+        <%= button_to "Delete this Event", movement, class: "show-custom-danger me-3 mb-3 text-start", method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

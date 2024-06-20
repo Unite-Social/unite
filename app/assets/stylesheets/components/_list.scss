@@ -1,7 +1,16 @@
 .list-link {
   position: fixed;
-  top: 5px;
+  top: 20px;
   right: 20px;
+  background-color: $green-unite;
+  border: 0;
+  color: #000000;
+  border-radius: 4px;
+  border: 1px 1px 1px #000000;
+}
+
+.list-link:hover {
+  background-color: #000000;
 }
 
 .cards {
@@ -33,6 +42,7 @@
   color: #000000;
   font-weight: 700;
   font-size: 20px;
+  max-height: 10%;
 }
 
 .content .para {
