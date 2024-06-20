@@ -56,9 +56,9 @@ export default class extends Controller {
 
 
       // Ajustar o mapa para que o popup fique visível
-      const popupHeight = popup._content.offsetHeight
-      const offset = popupHeight / 2 / Math.pow(2, this.map.getZoom())
-      this.map.panBy([0, -offset], { duration: 500 })
+      // const popupHeight = popup._content.offsetHeight
+      // const offset = popupHeight / 2 / Math.pow(2, this.map.getZoom())
+      // this.map.panBy([0, -offset], { duration: 500 })
     })
   }
 

@@ -29,6 +29,7 @@ class ApplicationPolicy
   end
 
   def update?
+    raise
     false
   end
 
