@@ -1,6 +1,6 @@
 <div class="row popup-content">
   <div class="col-4 image-section">
-    <% if m.photo.key.present? %>
+    <% if m.photo.key? %>
       <%= cl_image_tag m.photo.key, class: "img-card-index", crop: :fill %>
       <p class="mt-2">Organized by <strong><%= m.user.name.capitalize %></strong></p>
     <% else %>
