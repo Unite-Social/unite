@@ -1,1 +1,2 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+
+![unite-social](https://github.com/user-attachments/assets/8e9562ea-b875-46f5-8b87-5a764e691d66)
