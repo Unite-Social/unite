@@ -79,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: unite_production
-  username: unite
-  password: <%= ENV["UNITE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
