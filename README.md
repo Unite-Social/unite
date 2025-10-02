@@ -1,10 +1,10 @@
 Unite
-
+```
 A Ruby on Rails application.
-
+```
 
 📦 Requirements
-
+```
 Make sure you have installed:
 
 Ruby (check .ruby-version for the required version)
@@ -16,9 +16,10 @@ Bundler (gem install bundler)
 PostgreSQL (or your DB of choice)
 
 GitHub CLI (optional, for cloning)
-
+```
 
 🚀 Getting Started
+```
 1. Clone the Repository
 
 You can use GitHub CLI:
@@ -46,8 +47,10 @@ bin/rails server
 
 
 Visit: http://localhost:3000
+```
 
 🛠 Useful Commands
+```
 
 Run tests:
 
@@ -57,9 +60,10 @@ bin/rails test
 Run console:
 
 bin/rails console
-
+```
 
 🔑 Environment Variables
+```
 
 Copy .env.example to .env (or configure with config/master.key if Rails credentials are used).
 
@@ -67,9 +71,10 @@ cp .env.example .env
 
 
 Add your secrets and API keys inside.
-
+```
 
 🤝 Contributing
+```
 
 Fork this repo
 
@@ -81,3 +86,4 @@ Push to branch (git push origin feature/my-feature)
 
 Open a Pull Request
 ![unite-social](https://github.com/user-attachments/assets/8e9562ea-b875-46f5-8b87-5a764e691d66)
+```
